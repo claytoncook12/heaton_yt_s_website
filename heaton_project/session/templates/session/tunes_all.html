@@ -19,8 +19,7 @@
         <tr class="header d-flex">
           <th class='col-4 col-sm-5'>Name</th>
           <th class='col-4 col-sm-3'>Type</th>
-          <th class='col-2 col-sm-2'>Times Played</th>
-          <th class='col-2 col-sm-2'>#NameYerTune</th>
+          <th class='col-4 col-sm-4'>Times Played</th>
         </tr>
         {% for tune in played_tunes %}
         <tr class='d-flex' style="">
@@ -41,10 +40,8 @@
             <td class='col-4 col-sm-3'>
                 {{ tune.tune__tune_type__tune_type_char }}
             </td>
-            <td class='col-2 col-sm-2'>
+            <td class='col-4 col-sm-4'>
                {{ tune.tune__tune_id__count }}
-            </td>
-            <td class='col-2 col-sm-2'>
             </td>
         </tr>
         {% endfor %}
