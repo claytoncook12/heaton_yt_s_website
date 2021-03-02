@@ -72,10 +72,10 @@
         <li>
             <a href="{% url 'tune_detail' tune.tune.pk %}">
                 {{ tune.tune.name1|title }} ({{ tune.key|title }}) ({{ tune.tune.tune_type.tune_type_char|title }})
-                {% if  tune.add_info != '' or tune.tune.tune_info != '' %}
-                Notes: {{ tune.add_info }} {{ tune.tune.tune_info }}
-                {% endif %}
             </a>
+            {% if  tune.add_info != '' or tune.tune.tune_info != '' %}
+            Notes: {{ tune.add_info|title }}, {{ tune.tune.tune_info|title }}
+            {% endif %}
         </li>
     {% endfor %}
     </ol>
