@@ -54,7 +54,7 @@ def session_detail(request, year, month, day):
     tune_groups = []
     r = played_tune_group.objects.filter(session=session_id_detail)
     for group in r:
-        tune_groups.append({'group': group, 'played_tunes': played_tune.objects.filter(played_tune_group=group)})
+        tune_groups.append({'group': group, 'played_tunes': played_tune.objects.filter(played_tune_group=group).order_by('group_order_num')})
 
     return render(request, 'session/session_detail.html', {'session_id_detail': session_id_detail,
                                                            'videoId': videoId,
@@ -109,7 +109,7 @@ def nameyertune_all(request):
     All the #NameYerTune Tunes
     """
 
-    name_yer_tunes_all = name_yer_tune.objects.all()
+    name_yer_tunes_all = name_yer_tune.objects.all().order_by('-session__date')
 
     return render(request, 'session/name_yer_tune_all.html', {'name_yer_tunes_all': name_yer_tunes_all})
 

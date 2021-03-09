@@ -71,10 +71,14 @@
     {% for tune in group.played_tunes %}
         <li>
             <a href="{% url 'tune_detail' tune.tune.pk %}">
-                {{ tune.tune.name1|title }} ({{ tune.key|title }}) ({{ tune.tune.tune_type.tune_type_char|title }})
+                {{ tune.tune.name1|title }} 
+                {% if tune.tune.name2 %}
+                aka. {{ tune.tune.name2|title }}
+                {% endif %}
+                ({{ tune.key|title }}) ({{ tune.tune.tune_type.tune_type_char|title }})
             </a>
             {% if  tune.add_info != '' or tune.tune.tune_info != '' %}
-            Notes: {{ tune.add_info|title }}, {{ tune.tune.tune_info|title }}
+            Notes: {{ tune.add_info }}, {{ tune.tune.tune_info }}
             {% endif %}
         </li>
     {% endfor %}
